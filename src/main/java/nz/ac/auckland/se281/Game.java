@@ -16,13 +16,27 @@ public class Game {
   }
 
   public void play() {
-    String input = "";
+    String input;
     MessageCli.START_ROUND.printMessage(String.valueOf(roundNumber));
     MessageCli.ASK_INPUT.printMessage();
     
-    while (!Utils.isInteger(input)) {
+    while (true) {
       input = Utils.scanner.nextLine();
+      // Checks input is integer
+      if (!Utils.isInteger(input)) {
+        MessageCli.INVALID_INPUT.printMessage();
+        continue;
+      }
+      // Checks input is between 0 and 5
+      if (Integer.parseInt(input) < 0 | (Integer.parseInt(input) > 5)) {
+        MessageCli.INVALID_INPUT.printMessage();
+        continue;
+      }
+      
+      break;
     }
+
+
   }
 
   public void endGame() {}
