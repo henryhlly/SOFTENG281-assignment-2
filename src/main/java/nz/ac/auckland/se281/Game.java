@@ -9,14 +9,17 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   int roundNumber = 0;
+  String playerName;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
-    MessageCli.WELCOME_PLAYER.printMessage(options[0]);
-    roundNumber++;
+    playerName = options[0];
+    MessageCli.WELCOME_PLAYER.printMessage(playerName);
+    roundNumber = 0;
   }
 
   public void play() {
     String input;
+    roundNumber++;
     MessageCli.START_ROUND.printMessage(String.valueOf(roundNumber));
     MessageCli.ASK_INPUT.printMessage();
     
@@ -33,6 +36,7 @@ public class Game {
         continue;
       }
       
+      MessageCli.PRINT_INFO_HAND.printMessage(playerName, input);
       break;
     }
 
