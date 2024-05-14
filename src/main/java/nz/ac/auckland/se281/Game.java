@@ -17,13 +17,15 @@ public class Game {
   String playerName;
   Difficulty difficulty;
   Choice choice;
+  Hal9000 hal;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     playerName = options[0];
     this.difficulty = difficulty;
     this.choice = choice;
-    MessageCli.WELCOME_PLAYER.printMessage(playerName);
     roundNumber = 0;
+    MessageCli.WELCOME_PLAYER.printMessage(playerName);
+    this.hal = HalFactory.createHal(difficulty, choice);
   }
 
   public void play() {
@@ -58,7 +60,6 @@ public class Game {
     }
 
     // Deal with AI
-    Hal9000 hal = HalFactory.createHal(difficulty);
     halChoice = hal.play();
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(halChoice));
 
