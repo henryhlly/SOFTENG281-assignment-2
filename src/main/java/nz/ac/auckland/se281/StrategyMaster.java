@@ -7,7 +7,7 @@ public class StrategyMaster {
     this.strat = strat;
   }
 
-  public void setPayment(Strategy strat) {
+  public void setStrategy(Strategy strat) {
     this.strat = strat;
   }
 
