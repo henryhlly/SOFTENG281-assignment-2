@@ -7,20 +7,18 @@ import nz.ac.auckland.se281.Main.Choice;
 public class MediumHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
-  private TopStrat topStrat;
+  private Choice choice;
   StrategyMaster brain;
 
   public MediumHal(Choice choice) {
-    topStrat = new TopStrat(choice, playerHistory);
+    this.choice = choice;
     brain = new StrategyMaster(new RandomStrat());
   }
 
   @Override
   public int play() {
-    topStrat.updatePlayerHistory(playerHistory);
-
     if (playerHistory.size() > 3) {
-      brain.setStrategy(topStrat);
+      brain.setStrategy(new TopStrat(choice, playerHistory));
     }
     return brain.think();
   }

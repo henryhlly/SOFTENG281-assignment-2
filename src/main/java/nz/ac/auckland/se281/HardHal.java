@@ -9,14 +9,12 @@ public class HardHal implements Hal9000 {
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
   private StrategyMaster brain;
   private String prevWinner;
-  private Strategy topStrat;
-  private Strategy randomStrat;
+  private Choice choice;
 
   public HardHal(Choice choice, String winner) {
     prevWinner = winner;
-    topStrat = new TopStrat(choice, playerHistory);
-    randomStrat = new RandomStrat();
-    brain = new StrategyMaster(randomStrat);
+    this.choice = choice;
+    brain = new StrategyMaster(new RandomStrat());
   }
 
   @Override
@@ -25,9 +23,9 @@ public class HardHal implements Hal9000 {
       if (prevWinner == "HAL-9000") {}
       else {
         if (brain.getStrategy() instanceof RandomStrat) {
-          brain.setStrategy(topStrat);
+          brain.setStrategy(new TopStrat(choice, playerHistory));
         } else if (brain.getStrategy() instanceof TopStrat) {
-          brain.setStrategy(randomStrat);
+          brain.setStrategy(new RandomStrat());
         } else {
           System.out.println("Error; No such Strat");
         }

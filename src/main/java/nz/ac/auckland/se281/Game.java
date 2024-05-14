@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /** This class represents the Game is the main entry point. */
 public class Game {
 
-  int roundNumber = 0;
+  int roundNumber = -1;
   int sum;
   String winner = null;
   ArrayList<Integer> playerHistory = new ArrayList<Integer>();
@@ -32,10 +32,15 @@ public class Game {
     int playerChoice;
     int halChoice;
 
+    if (roundNumber == -1) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     roundNumber++;
     MessageCli.START_ROUND.printMessage(String.valueOf(roundNumber));
     MessageCli.ASK_INPUT.printMessage();
-    
+
     // Deal with player input
     while (true) {
       String input = Utils.scanner.nextLine();
