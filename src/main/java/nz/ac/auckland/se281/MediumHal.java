@@ -8,14 +8,15 @@ public class MediumHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
   private Choice choice;
+  StrategyMaster brain;
 
   public MediumHal(Choice choice) {
     this.choice = choice;
+    brain = new StrategyMaster(new RandomStrat());
   }
 
   @Override
   public int play() {
-    StrategyMaster brain = new StrategyMaster(new RandomStrat());
     if (playerHistory.size() > 3) {
       brain.setStrategy(new TopStrat(choice, playerHistory));
     }

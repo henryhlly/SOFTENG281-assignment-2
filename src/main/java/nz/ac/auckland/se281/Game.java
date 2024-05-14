@@ -55,7 +55,7 @@ public class Game {
       }
       
       MessageCli.PRINT_INFO_HAND.printMessage(playerName, input);
-      playerHistory.add(playerChoice);
+      hal.addPlayerMove(playerChoice);
       break;
     }
 
@@ -69,15 +69,19 @@ public class Game {
       case ODD:
         if (Utils.isOdd(sum)) {
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", playerName);
+          break;
         } else {
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", "HAL-9000");
+          break;
         }
         
       case EVEN:
         if (Utils.isEven(sum)) {
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", playerName);
+          break;
         } else {
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", "HAL-9000");
+          break;
         }
     }
   }

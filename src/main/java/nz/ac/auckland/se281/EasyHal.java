@@ -7,8 +7,6 @@ public class EasyHal implements Hal9000 {
 
   public ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
-  public EasyHal() {}
-
   @Override
   public int play() {
     StrategyMaster brain = new StrategyMaster(new RandomStrat());

@@ -25,7 +25,10 @@ public class TopStrat implements Strategy {
   public int makeDecision() {
     switch (choice) {
       case EVEN:
-        if (numberOfEven > numberOfOdd) {
+        if (numberOfEven == numberOfOdd) {
+          // When Hal does not know what player will choose
+          return Utils.getRandomNumberRange(0, 5);
+        } else if (numberOfEven > numberOfOdd) {
           // When Hal thinks player will choose EVEN
           // EVEN + ODD = ODD
           return Utils.getRandomOddNumber();
@@ -37,7 +40,10 @@ public class TopStrat implements Strategy {
         }
 
       case ODD:
-        if (numberOfEven > numberOfOdd) {
+        if (numberOfEven == numberOfOdd) {
+          // When Hal does not know what player will choose
+          return Utils.getRandomNumberRange(0, 5);
+        } else if (numberOfEven > numberOfOdd) {
           // When Hal thinks player will choose EVEN
           // EVEN + EVEN = EVEN
           return Utils.getRandomEvenNumber();
