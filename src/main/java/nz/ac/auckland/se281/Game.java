@@ -4,6 +4,7 @@ import javax.swing.plaf.metal.MetalProgressBarUI;
 
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
+import java.util.ArrayList;
 
 /** This class represents the Game is the main entry point. */
 public class Game {
@@ -11,6 +12,7 @@ public class Game {
   int roundNumber = 0;
   int sum;
   String winner;
+  ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
   String playerName;
   Difficulty difficulty;
@@ -51,6 +53,7 @@ public class Game {
       }
       
       MessageCli.PRINT_INFO_HAND.printMessage(playerName, input);
+      playerHistory.add(playerChoice);
       break;
     }
 

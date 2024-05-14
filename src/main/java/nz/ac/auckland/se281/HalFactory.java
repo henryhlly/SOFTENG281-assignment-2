@@ -10,7 +10,7 @@ public class HalFactory {
         return new EasyHal();
 
       case MEDIUM:
-        return null;
+        return new MediumHal();
 
       case HARD:
         return null;

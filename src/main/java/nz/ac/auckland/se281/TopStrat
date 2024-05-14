@@ -1,0 +1,5 @@
+class TopStrat implements Strategy {
+  public int makeDecision() {
+    
+  }
+}
