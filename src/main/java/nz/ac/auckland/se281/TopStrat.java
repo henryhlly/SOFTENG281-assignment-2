@@ -9,10 +9,18 @@ public class TopStrat implements Strategy {
   Choice choice;
   int numberOfEven;
   int numberOfOdd;
+  ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
   public TopStrat(Choice choice, ArrayList<Integer> playerHistory) {
     this.choice = choice;
+    this.playerHistory = playerHistory;
+  }
 
+  public void updatePlayerHistory(ArrayList<Integer> playerHistory) {
+    this.playerHistory = playerHistory;
+  }
+
+  public int makeDecision() {
     // Calculate the number of even and odd
     for (int i : playerHistory) {
       if (Utils.isEven(i)) {
@@ -20,9 +28,7 @@ public class TopStrat implements Strategy {
       }
     }
     numberOfOdd = playerHistory.size() - numberOfEven;
-  }
 
-  public int makeDecision() {
     switch (choice) {
       case EVEN:
         if (numberOfEven == numberOfOdd) {

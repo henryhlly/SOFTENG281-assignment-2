@@ -11,7 +11,7 @@ public class Game {
 
   int roundNumber = 0;
   int sum;
-  String winner;
+  String winner = null;
   ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
   String playerName;
@@ -25,7 +25,7 @@ public class Game {
     this.choice = choice;
     roundNumber = 0;
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
-    this.hal = HalFactory.createHal(difficulty, choice);
+    this.hal = HalFactory.createHal(difficulty, choice, winner);
   }
 
   public void play() {
@@ -68,19 +68,23 @@ public class Game {
     switch (choice) {
       case ODD:
         if (Utils.isOdd(sum)) {
-          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", playerName);
+          winner = playerName;
+          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", winner);
           break;
         } else {
-          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", "HAL-9000");
+          winner = "HAL-9000";
+          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", winner);
           break;
         }
         
       case EVEN:
         if (Utils.isEven(sum)) {
-          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", playerName);
+          winner = playerName;
+          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", winner);
           break;
         } else {
-          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", "HAL-9000");
+          winner = "HAL-9000";
+          MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", winner);
           break;
         }
     }

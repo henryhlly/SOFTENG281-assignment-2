@@ -11,6 +11,11 @@ public class StrategyMaster {
     this.strat = strat;
   }
 
+  public Strategy getStrategy() {
+    return strat;
+    
+  }
+
   public int think() {
     return strat.makeDecision();
   }

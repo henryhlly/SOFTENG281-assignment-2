@@ -7,20 +7,32 @@ import nz.ac.auckland.se281.Main.Choice;
 public class HardHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
-  private Choice choice;
-  StrategyMaster brain;
+  private StrategyMaster brain;
+  private String prevWinner;
+  private Strategy topStrat;
+  private Strategy randomStrat;
 
-  public HardHal(Choice choice) {
-    this.choice = choice;
-    brain = new StrategyMaster(new RandomStrat());
+  public HardHal(Choice choice, String winner) {
+    prevWinner = winner;
+    topStrat = new TopStrat(choice, playerHistory);
+    randomStrat = new RandomStrat();
+    brain = new StrategyMaster(randomStrat);
   }
 
   @Override
   public int play() {
     if (playerHistory.size() > 3) {
-      brain.setStrategy(new TopStrat(choice, playerHistory));
+      if (prevWinner == "HAL-9000") {}
+      else {
+        if (brain.getStrategy() instanceof RandomStrat) {
+          brain.setStrategy(topStrat);
+        } else if (brain.getStrategy() instanceof TopStrat) {
+          brain.setStrategy(randomStrat);
+        } else {
+          System.out.println("Error; No such Strat");
+        }
+      }
     }
-
     return brain.think();
   }
 
