@@ -3,6 +3,7 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 import java.util.ArrayList;
 
+
 public class TopStrat implements Strategy {
   
   Choice choice;

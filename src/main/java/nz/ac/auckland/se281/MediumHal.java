@@ -7,7 +7,6 @@ public class MediumHal implements Hal9000 {
 
   public MediumHal() {}
 
-
   @Override
   public int play() {
     return -1;
