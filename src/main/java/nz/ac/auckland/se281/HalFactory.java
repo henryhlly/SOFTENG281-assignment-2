@@ -15,7 +15,7 @@ public class HalFactory {
         return new MediumHal(choice);
 
       case HARD:
-        return null;
+        return new HardHal(choice);
     }
     return null;
   }
