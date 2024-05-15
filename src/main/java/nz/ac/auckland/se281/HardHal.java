@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import nz.ac.auckland.se281.Main.Choice;
 
 /**
- * A class that represents a Hal9000 object that is of HARD difficulty
+ * A class that represents a Hal9000 object that is of HARD difficulty.
  * 
  * @author Henry Ly
  */

@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 
 /**
- * A class that represents a Hal9000 object that is of EASY difficulty
+ * A class that represents a Hal9000 object that is of EASY difficulty.
  * 
  * @author Henry Ly
  */
@@ -26,7 +26,7 @@ public class EasyHal implements Hal9000 {
   /**
    * Add a move a player just made to HAL-9000's memory so that if required HAL-9000 can
    * use it to determine its next move.
-   * 
+   *
    * @param playerChoice whether the goal of the player is to get an EVEN or ODD number
    */
   @Override

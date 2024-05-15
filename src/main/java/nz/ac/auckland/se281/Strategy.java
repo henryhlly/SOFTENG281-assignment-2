@@ -1,6 +1,5 @@
 package nz.ac.auckland.se281;
 
-
 /**
  * An interface that defines the methods that a Strategy needs, in order
  * to be of type Strategy.
