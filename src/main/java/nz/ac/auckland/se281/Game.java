@@ -17,8 +17,8 @@ public class Game {
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // Reset/Replace all required game variables
-    playerName = options[0];
     this.choice = choice;
+    playerName = options[0];
     roundNumber = 0;
     playerWins = 0;
     this.hal = HalFactory.createHal(difficulty, choice, winner);
@@ -121,8 +121,8 @@ public class Game {
     }
 
     MessageCli.PRINT_PLAYER_WINS.printMessage(playerName, 
-      String.valueOf(playerWins), String.valueOf(halWins));
+    String.valueOf(playerWins), String.valueOf(halWins));
     MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", 
-      String.valueOf(halWins), String.valueOf(playerWins));
+    String.valueOf(halWins), String.valueOf(playerWins));
   }
 }

@@ -1,7 +1,7 @@
 package nz.ac.auckland.se281;
 
-import nz.ac.auckland.se281.Main.Difficulty;
 import nz.ac.auckland.se281.Main.Choice;
+import nz.ac.auckland.se281.Main.Difficulty;
 
 // Factory for creating Hal's of different difficulty
 public class HalFactory {

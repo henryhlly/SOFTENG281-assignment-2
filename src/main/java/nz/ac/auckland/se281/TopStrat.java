@@ -8,7 +8,7 @@ public class TopStrat implements Strategy {
   private Choice choice;
   private int numberOfEven;
   private int numberOfOdd;
-  private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
+  private ArrayList<Integer> playerHistory;
 
   public TopStrat(Choice choice, ArrayList<Integer> playerHistory) {
     this.choice = choice;

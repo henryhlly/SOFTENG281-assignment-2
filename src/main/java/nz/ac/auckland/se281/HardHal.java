@@ -22,8 +22,7 @@ public class HardHal implements Hal9000 {
   public int play() {
     // Deal with strategy switching for Hard HAL
     if (playerHistory.size() > 3) {
-      if (prevWinner == "HAL-9000") {
-      } else {
+      if (prevWinner != "HAL-9000") {
         if (brain.getStrategy() instanceof RandomStrat) {
           brain.setStrategy(new TopStrat(choice, playerHistory));
         } else if (brain.getStrategy() instanceof TopStrat) {
