@@ -18,6 +18,12 @@ public class HardHal implements Hal9000 {
     brain = new StrategyMaster(new RandomStrat());
   }
 
+  /** 
+   * Make AI pick a number of fingers based off of the HARD difficulty
+   * and return it for the game to decide what to do next.
+   *
+   * @return the result of the think method of StrategyMaster brain.
+  */
   @Override
   public int play() {
     // Deal with strategy switching for Hard HAL
@@ -35,6 +41,12 @@ public class HardHal implements Hal9000 {
     return brain.think();
   }
 
+  /**
+   * Add a move a player just made to HAL-9000's memory so that if required HAL-9000 can
+   * use it to determine its next move.
+   * 
+   * @param playerChoice whether the goal of the player is to get an EVEN or ODD number
+   */
   @Override
   public void addPlayerMove(int playerChoice) {
     playerHistory.add(playerChoice);

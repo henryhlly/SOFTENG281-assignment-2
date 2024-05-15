@@ -120,9 +120,15 @@ public class Game {
       return;
     }
 
-    MessageCli.PRINT_PLAYER_WINS.printMessage(playerName, 
-    String.valueOf(playerWins), String.valueOf(halWins));
-    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", 
-    String.valueOf(halWins), String.valueOf(playerWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+      playerName, 
+      String.valueOf(playerWins), 
+      String.valueOf(halWins)
+    );
+    MessageCli.PRINT_PLAYER_WINS.printMessage(
+      "HAL-9000", 
+      String.valueOf(halWins), 
+      String.valueOf(playerWins)
+    );
   }
 }

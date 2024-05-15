@@ -10,15 +10,19 @@ public class TopStrat implements Strategy {
   private int numberOfOdd;
   private ArrayList<Integer> playerHistory;
 
+  // Constructor to pass the choice and current playerHistory into the object
   public TopStrat(Choice choice, ArrayList<Integer> playerHistory) {
     this.choice = choice;
     this.playerHistory = playerHistory;
   }
 
-  public void updatePlayerHistory(ArrayList<Integer> playerHistory) {
-    this.playerHistory = playerHistory;
-  }
-
+  /**
+   * Use the built in algorithm to generate a number of fingers
+   * ranging from 0 to 5 based on the previous moves of the
+   * player.
+   * 
+   * @return a randomly selected number ranging from 0 to 5
+   */
   public int makeDecision() {
     // Calculate the number of even and odd
     for (int i : playerHistory) {
