@@ -17,9 +17,4 @@ public class EasyHal implements Hal9000 {
   public void addPlayerMove(int playerChoice) {
     playerHistory.add(playerChoice);
   }
-
-  @Override
-  public ArrayList<Integer> getPlayerHistory() {
-    return playerHistory;
-  }
 }

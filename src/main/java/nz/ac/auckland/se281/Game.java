@@ -12,6 +12,8 @@ public class Game {
   int roundNumber = -1;
   int sum;
   String winner = null;
+  int playerWins;
+  int halWins;
   ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
   String playerName;
@@ -24,6 +26,7 @@ public class Game {
     this.difficulty = difficulty;
     this.choice = choice;
     roundNumber = 0;
+    playerWins = 0;
     MessageCli.WELCOME_PLAYER.printMessage(playerName);
     this.hal = HalFactory.createHal(difficulty, choice, winner);
   }
@@ -74,10 +77,12 @@ public class Game {
       case ODD:
         if (Utils.isOdd(sum)) {
           winner = playerName;
+          playerWins++;
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", winner);
           break;
         } else {
           winner = "HAL-9000";
+          halWins++;
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", winner);
           break;
         }
@@ -85,17 +90,37 @@ public class Game {
       case EVEN:
         if (Utils.isEven(sum)) {
           winner = playerName;
+          playerWins++;
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "EVEN", winner);
           break;
         } else {
           winner = "HAL-9000";
+          halWins++;
           MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), "ODD", winner);
           break;
         }
     }
   }
 
-  public void endGame() {}
+  public void endGame() {
+    showStats();
+    if (playerWins > halWins) {
+      MessageCli.PRINT_END_GAME.printMessage(playerName);
+    } else if (playerWins < halWins) {
+      MessageCli.PRINT_END_GAME.printMessage("HAL-9000");
+    } else {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    }
+    roundNumber = -1;
+  }
 
-  public void showStats() {}
+  public void showStats() {
+    if (roundNumber == -1) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
+    MessageCli.PRINT_PLAYER_WINS.printMessage(playerName, String.valueOf(playerWins), String.valueOf(halWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", String.valueOf(halWins), String.valueOf(playerWins));
+  }
 }
