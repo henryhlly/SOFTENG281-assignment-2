@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 import nz.ac.auckland.se281.Main.Choice;
 
-// Object for difficulty MEDIUM
+// Object for difficulty HARD
 public class HardHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
@@ -11,6 +11,7 @@ public class HardHal implements Hal9000 {
   private String prevWinner;
   private Choice choice;
 
+  // Constructor for setting choice and winner
   public HardHal(Choice choice, String winner) {
     prevWinner = winner;
     this.choice = choice;
@@ -19,9 +20,10 @@ public class HardHal implements Hal9000 {
 
   @Override
   public int play() {
+    // Deal with strategy switching for Hard HAL
     if (playerHistory.size() > 3) {
-      if (prevWinner == "HAL-9000") {}
-      else {
+      if (prevWinner == "HAL-9000") {
+      } else {
         if (brain.getStrategy() instanceof RandomStrat) {
           brain.setStrategy(new TopStrat(choice, playerHistory));
         } else if (brain.getStrategy() instanceof TopStrat) {

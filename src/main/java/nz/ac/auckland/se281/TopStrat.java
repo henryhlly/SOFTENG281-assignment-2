@@ -1,15 +1,14 @@
 package nz.ac.auckland.se281;
 
-import nz.ac.auckland.se281.Main.Choice;
 import java.util.ArrayList;
-
+import nz.ac.auckland.se281.Main.Choice;
 
 public class TopStrat implements Strategy {
   
-  Choice choice;
-  int numberOfEven;
-  int numberOfOdd;
-  ArrayList<Integer> playerHistory = new ArrayList<Integer>();
+  private Choice choice;
+  private int numberOfEven;
+  private int numberOfOdd;
+  private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
   public TopStrat(Choice choice, ArrayList<Integer> playerHistory) {
     this.choice = choice;

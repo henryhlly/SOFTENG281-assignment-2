@@ -7,8 +7,9 @@ import nz.ac.auckland.se281.Main.Choice;
 public class HalFactory {
 
   public static Hal9000 createHal(Difficulty difficulty, Choice choice, String winner) {
+    // Create corresponding HAL objects
     switch (difficulty) {
-      case EASY: 
+      case EASY:
         return new EasyHal();
 
       case MEDIUM:

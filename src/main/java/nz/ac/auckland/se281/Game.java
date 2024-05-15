@@ -1,40 +1,35 @@
 package nz.ac.auckland.se281;
 
-import javax.swing.plaf.metal.MetalProgressBarUI;
-
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
-import java.util.ArrayList;
 
 /** This class represents the Game is the main entry point. */
 public class Game {
+  private int roundNumber = -1;
+  private int sum;
+  private String winner = null;
+  private int playerWins;
+  private int halWins;
 
-  int roundNumber = -1;
-  int sum;
-  String winner = null;
-  int playerWins;
-  int halWins;
-  ArrayList<Integer> playerHistory = new ArrayList<Integer>();
-
-  String playerName;
-  Difficulty difficulty;
-  Choice choice;
-  Hal9000 hal;
+  private String playerName;
+  private Choice choice;
+  private Hal9000 hal;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
+    // Reset/Replace all required game variables
     playerName = options[0];
-    this.difficulty = difficulty;
     this.choice = choice;
     roundNumber = 0;
     playerWins = 0;
-    MessageCli.WELCOME_PLAYER.printMessage(playerName);
     this.hal = HalFactory.createHal(difficulty, choice, winner);
+    MessageCli.WELCOME_PLAYER.printMessage(playerName);    
   }
 
   public void play() {
     int playerChoice;
     int halChoice;
 
+    // Check that NEW_GAME has been done
     if (roundNumber == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
@@ -63,6 +58,7 @@ public class Game {
       }
       
       MessageCli.PRINT_INFO_HAND.printMessage(playerName, input);
+      // Make HAL remember the player's move.
       hal.addPlayerMove(playerChoice);
       break;
     }
@@ -71,7 +67,7 @@ public class Game {
     halChoice = hal.play();
     MessageCli.PRINT_INFO_HAND.printMessage("HAL-9000", String.valueOf(halChoice));
 
-    // Deal with outcome of round
+    // Calculate the outcome of the round
     sum = playerChoice + halChoice;
     switch (choice) {
       case ODD:
@@ -104,6 +100,8 @@ public class Game {
 
   public void endGame() {
     showStats();
+
+    // Decide who wins the game
     if (playerWins > halWins) {
       MessageCli.PRINT_END_GAME.printMessage(playerName);
     } else if (playerWins < halWins) {
@@ -111,16 +109,20 @@ public class Game {
     } else {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
     }
+    // Reset the game
     roundNumber = -1;
   }
 
   public void showStats() {
+    // Check that NEW_GAME has been done
     if (roundNumber == -1) {
       MessageCli.GAME_NOT_STARTED.printMessage();
       return;
     }
 
-    MessageCli.PRINT_PLAYER_WINS.printMessage(playerName, String.valueOf(playerWins), String.valueOf(halWins));
-    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", String.valueOf(halWins), String.valueOf(playerWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(playerName, 
+      String.valueOf(playerWins), String.valueOf(halWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage("HAL-9000", 
+      String.valueOf(halWins), String.valueOf(playerWins));
   }
 }

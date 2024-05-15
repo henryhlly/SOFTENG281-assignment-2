@@ -5,7 +5,7 @@ import java.util.ArrayList;
 // Object for difficulty EASY
 public class EasyHal implements Hal9000 {
 
-  public ArrayList<Integer> playerHistory = new ArrayList<Integer>();
+  private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
 
   @Override
   public int play() {

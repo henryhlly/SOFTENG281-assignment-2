@@ -8,8 +8,9 @@ public class MediumHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();
   private Choice choice;
-  StrategyMaster brain;
+  private StrategyMaster brain;
 
+  // Constructor for setting choice
   public MediumHal(Choice choice) {
     this.choice = choice;
     brain = new StrategyMaster(new RandomStrat());
