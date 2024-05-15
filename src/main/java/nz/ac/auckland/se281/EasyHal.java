@@ -2,7 +2,11 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 
-// Object for difficulty EASY
+/**
+ * A class that represents a Hal9000 object that is of EASY difficulty
+ * 
+ * @author Henry Ly
+ */
 public class EasyHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();

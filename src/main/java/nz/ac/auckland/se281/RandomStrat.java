@@ -1,5 +1,11 @@
 package nz.ac.auckland.se281;
 
+/**
+ * A class that represents a Strategy object that contains the
+ * algorithm for the Random Strategy as defined in the assignment.
+ * 
+ * @author Henry Ly
+ */
 public class RandomStrat implements Strategy {
 
   /**

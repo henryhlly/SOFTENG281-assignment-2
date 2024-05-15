@@ -1,6 +1,11 @@
 package nz.ac.auckland.se281;
 
-// Interface for defining Hal's
+/**
+ * An interface that defines the methods that a HAL9000 needs, in order
+ * to be of type Hal9000.
+ * 
+ * @author Henry Ly
+ */
 public interface Hal9000 {
 
   /** 

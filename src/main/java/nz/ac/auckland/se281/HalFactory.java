@@ -3,7 +3,12 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
-// Factory for creating Hal's of different difficulty
+/**
+ * A class that represents a factory that creates HAL9000 objects
+ * based on given properties.
+ * 
+ * @author Henry Ly
+ */
 public class HalFactory {
 
   /**

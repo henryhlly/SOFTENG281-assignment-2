@@ -3,7 +3,11 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 import nz.ac.auckland.se281.Main.Choice;
 
-// Object for difficulty HARD
+/**
+ * A class that represents a Hal9000 object that is of HARD difficulty
+ * 
+ * @author Henry Ly
+ */
 public class HardHal implements Hal9000 {
 
   private ArrayList<Integer> playerHistory = new ArrayList<Integer>();

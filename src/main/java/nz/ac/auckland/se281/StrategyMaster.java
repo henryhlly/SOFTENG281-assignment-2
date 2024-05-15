@@ -1,5 +1,11 @@
 package nz.ac.auckland.se281;
 
+/**
+ * A class that acts as a controller for the Strategy types. Allows
+ * other objects to interact with the strategies and use them.
+ * 
+ * @author Henry Ly
+ */
 public class StrategyMaster {
   private Strategy strat;
   

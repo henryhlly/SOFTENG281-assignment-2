@@ -3,6 +3,12 @@ package nz.ac.auckland.se281;
 import java.util.ArrayList;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * A class that represents a Strategy object that contains the
+ * algorithm for the Top Strategy as defined in the assignment.
+ * 
+ * @author Henry Ly
+ */
 public class TopStrat implements Strategy {
   
   private Choice choice;
