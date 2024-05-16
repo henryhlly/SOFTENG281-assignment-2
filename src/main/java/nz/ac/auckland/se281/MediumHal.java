@@ -5,7 +5,7 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * A class that represents a Hal9000 object that is of MEDIUM difficulty.
- * 
+ *
  * @author Henry Ly
  */
 public class MediumHal implements Hal9000 {
@@ -14,7 +14,12 @@ public class MediumHal implements Hal9000 {
   private Choice choice;
   private StrategyMaster brain;
 
-  // Constructor for setting choice
+  /**
+   * A constructor method to initialise the choice so that the Hal object
+   * knows them.
+   *
+   * @param choice whether the goal of the player is to get an EVEN or ODD number
+   */
   public MediumHal(Choice choice) {
     this.choice = choice;
     brain = new StrategyMaster(new RandomStrat());
@@ -37,7 +42,7 @@ public class MediumHal implements Hal9000 {
   /**
    * Add a move a player just made to HAL-9000's memory so that if required HAL-9000 can
    * use it to determine its next move.
-   * 
+   *
    * @param playerChoice whether the goal of the player is to get an EVEN or ODD number
    */
   @Override

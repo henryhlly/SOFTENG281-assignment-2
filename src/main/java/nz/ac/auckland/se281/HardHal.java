@@ -5,7 +5,7 @@ import nz.ac.auckland.se281.Main.Choice;
 
 /**
  * A class that represents a Hal9000 object that is of HARD difficulty.
- * 
+ *
  * @author Henry Ly
  */
 public class HardHal implements Hal9000 {
@@ -15,7 +15,13 @@ public class HardHal implements Hal9000 {
   private String prevWinner;
   private Choice choice;
 
-  // Constructor for setting choice and winner
+  /**
+   * A constructor method to initialise the choice and winner so that the Hal object
+   * knows them.
+   *
+   * @param choice whether the goal of the player is to get an EVEN or ODD number
+   * @param winner the winner of the last round
+   */
   public HardHal(Choice choice, String winner) {
     prevWinner = winner;
     this.choice = choice;
@@ -48,7 +54,7 @@ public class HardHal implements Hal9000 {
   /**
    * Add a move a player just made to HAL-9000's memory so that if required HAL-9000 can
    * use it to determine its next move.
-   * 
+   *
    * @param playerChoice whether the goal of the player is to get an EVEN or ODD number
    */
   @Override

@@ -3,7 +3,11 @@ package nz.ac.auckland.se281;
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
-/** This class represents the Game is the main entry point. */
+/**
+ * Class that represents the main body of the Even/Odds Game.
+ *
+ * @author Henry Ly
+ */
 public class Game {
   private int roundNumber = -1;
   private int sum;
@@ -15,6 +19,15 @@ public class Game {
   private Choice choice;
   private Hal9000 hal;
 
+  /**
+   * A method that initialises the properties of the game and determines 
+   * how its played. Sets difficulty of AI opponent, Goal of the player
+   * and player name.
+   *
+   * @param difficulty the difficulty level of HAL-9000 object
+   * @param choice the type of integer that the player is trying to achieve
+   * @param options the player name in an array
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // Reset/Replace all required game variables
     this.choice = choice;
@@ -25,6 +38,10 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(playerName);    
   }
 
+  /**
+   * A method that begins a round of the game where it asks player
+   * for their move and then gets the move from the AI and compares.
+   */
   public void play() {
     int playerChoice;
     int halChoice;
@@ -98,6 +115,10 @@ public class Game {
     }
   }
 
+  /**
+   * A method that will end the game and show stats/outcome of the
+   * ended game.
+   */
   public void endGame() {
     showStats();
 
@@ -113,6 +134,9 @@ public class Game {
     roundNumber = -1;
   }
 
+  /**
+   * A method that will show the stats of the current game
+   */
   public void showStats() {
     // Check that NEW_GAME has been done
     if (roundNumber == -1) {

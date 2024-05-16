@@ -3,13 +3,18 @@ package nz.ac.auckland.se281;
 /**
  * A class that acts as a controller for the Strategy types. Allows
  * other objects to interact with the strategies and use them.
- * 
+ *
  * @author Henry Ly
  */
 public class StrategyMaster {
   private Strategy strat;
   
-  // Constructor to set default first strategy
+  /**
+   * A constructor method to initialise the starting strat so that 
+   * the StrategyMaster knows them.
+   *
+   * @param strat the initial strat that the StrategyMaster should be using
+   */
   public StrategyMaster(Strategy strat) {
     this.strat = strat;
   }
@@ -27,7 +32,7 @@ public class StrategyMaster {
   /**
    * Method to actually use the strategy and get the number of
    * fingers.
-   * 
+   *
    * @return the result of the strategy's algroithm
    */
   public int think() {

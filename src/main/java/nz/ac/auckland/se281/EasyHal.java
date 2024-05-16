@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * A class that represents a Hal9000 object that is of EASY difficulty.
- * 
+ *
  * @author Henry Ly
  */
 public class EasyHal implements Hal9000 {
