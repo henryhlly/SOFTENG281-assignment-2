@@ -135,7 +135,7 @@ public class Game {
   }
 
   /**
-   * A method that will show the stats of the current game
+   * A method that will show the stats of the current game.
    */
   public void showStats() {
     // Check that NEW_GAME has been done
@@ -145,14 +145,14 @@ public class Game {
     }
 
     MessageCli.PRINT_PLAYER_WINS.printMessage(
-      playerName, 
-      String.valueOf(playerWins), 
-      String.valueOf(halWins)
+        playerName, 
+        String.valueOf(playerWins), 
+        String.valueOf(halWins)
     );
     MessageCli.PRINT_PLAYER_WINS.printMessage(
-      "HAL-9000", 
-      String.valueOf(halWins), 
-      String.valueOf(playerWins)
+        "HAL-9000", 
+        String.valueOf(halWins), 
+        String.valueOf(playerWins)
     );
   }
 }

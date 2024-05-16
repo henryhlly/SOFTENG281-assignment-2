@@ -12,7 +12,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class HalFactory {
 
   /**
-   * Creates a HAL-9000 object of chosen difficulty
+   * Creates a HAL-9000 object of chosen difficulty.
    *
    * @param difficulty the chosen difficulty
    * @param choice whether the goal of the player is to get an EVEN or ODD number
